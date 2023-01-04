@@ -7,7 +7,7 @@ import lombok.Data;
 @Builder
 @Data
 @AllArgsConstructor
-public class CrearUsuarioModel {
+public class UsuarioModel {
 	private String name;
 	private String job;
 	

@@ -1,10 +1,9 @@
 package in.reqres.tasks;
 
 import in.reqres.interteraction.Post;
-import in.reqres.models.CrearUsuarioModel;
+import in.reqres.models.UsuarioModel;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Task;
-import org.springframework.ui.Model;
 
 import java.util.Map;
 
@@ -14,10 +13,10 @@ public class CrearUsuarioTask implements Task {
 	private Map<String, Object> headers;
 	
 	
-	private final CrearUsuarioModel crearUsuarioModel;
+	private final UsuarioModel crearUsuarioModel;
 	
 	
-	public CrearUsuarioTask(CrearUsuarioModel crearUsuarioModel) {
+	public CrearUsuarioTask(UsuarioModel crearUsuarioModel) {
 		this.crearUsuarioModel = crearUsuarioModel;
 	}
 	
@@ -63,7 +62,7 @@ public class CrearUsuarioTask implements Task {
 		
 		public  CrearUsuarioTask andjob(String job){
 			this.job = job;
-			return new CrearUsuarioTask(CrearUsuarioModel
+			return new CrearUsuarioTask(UsuarioModel
 			                            .builder()
 					                      .name(this.name)
 					                      .job(this.job)

@@ -1,17 +1,12 @@
 package in.reqres_test.step_definitions_reqres;
 
 import com.github.javafaker.Faker;
-import in.reqres.models.CrearUsuarioModel;
-import in.reqres.questions.CodigoRespuesta;
+import in.reqres.models.UsuarioModel;
 import in.reqres.tasks.CrearUsuarioTask;
 import in.reqres_test.setup_reqres.ReqresSetUp;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import net.serenitybdd.screenplay.Actor;
-import net.serenitybdd.screenplay.rest.abilities.CallAnApi;
-import okhttp3.Headers;
-import org.apache.http.entity.mime.content.ContentBody;
 import org.apache.log4j.Logger;
 import org.assertj.core.api.Assertions;
 import org.eclipse.jetty.http.HttpStatus;
@@ -24,7 +19,7 @@ import static org.hamcrest.CoreMatchers.equalTo;
 public class PostStepDefinition extends ReqresSetUp {
 	
 	private static final Logger LOGGER = Logger.getLogger(PostStepDefinition.class);
-	private static CrearUsuarioModel crearUsuarioModel;
+	private static UsuarioModel crearUsuarioModel;
 	
 	
 	@Given("que el administrador ingresa al aplicativo")
@@ -71,7 +66,7 @@ public class PostStepDefinition extends ReqresSetUp {
 		Faker faker = new Faker();
 		String name = faker.name().name();
 		String job =  faker.job().position();
-		crearUsuarioModel = new CrearUsuarioModel(name, job);
+		crearUsuarioModel = new UsuarioModel(name, job);
 	}
 	
 }
