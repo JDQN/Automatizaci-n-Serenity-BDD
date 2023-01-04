@@ -31,7 +31,7 @@ public class PutStepDefinition extends ReqresSetUp {
 	@Given("que el administrador ingresa al aplicativo web")
 	public void queElAdministradorIngresaAlAplicativoWeb() {
 		try {
-			ActualizarDatosUsuario();
+			DatosUsuario();
 			generalSetUp();
 			headers.put("Content-type", "application/json");
 			actor.attemptsTo(
@@ -51,7 +51,8 @@ public class PutStepDefinition extends ReqresSetUp {
 	@When("actualiza los datos de un usario registrado")
 	public void actualizaLosDatosDeUnUsarioRegistrado() {
 		try{
-			ActualizarDatosUsuario();
+			DatosUsuario();
+			generalSetUp();
 			actor.attemptsTo(
 					ActualizarUsuarioTask.withName(actualizarUsuarioModel.getName())
 							.andjob(actualizarUsuarioModel.getJob())
@@ -59,7 +60,7 @@ public class PutStepDefinition extends ReqresSetUp {
 							.withHeaders(headers)
 			);
 		}catch (Exception exception){
-			Assertions.fail("Aqui esta el Error", exception);
+			Assertions.fail(exception.getMessage(), exception);
 			LOGGER.error(exception.getMessage(), exception);
 		}
 	}
@@ -76,7 +77,7 @@ public class PutStepDefinition extends ReqresSetUp {
 		}
 	}
 	
-	private  void ActualizarDatosUsuario(){
+	private  void DatosUsuario(){
 		Faker faker = new Faker();
 		String name = faker.name().name();
 		String job = faker.job().position();
