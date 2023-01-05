@@ -3,15 +3,15 @@ package in.reqres_test.step_definitions_reqres;
 import com.github.javafaker.Faker;
 import in.reqres.models.UsuarioModel;
 import in.reqres.tasks.CrearUsuarioTask;
-import in.reqres_test.setup_reqres.ReqresSetUp;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.apache.log4j.Logger;
 import org.assertj.core.api.Assertions;
 import org.eclipse.jetty.http.HttpStatus;
+import setup.ReqresSetUp;
 
-import static in.reqres.questions.CodigoRespuesta.was;
+import static questions.CodigoRespuesta.was;
 import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
 import static org.hamcrest.CoreMatchers.equalTo;
 
@@ -26,12 +26,10 @@ public class PostStepDefinition extends ReqresSetUp {
 	public void queElAdministradorIngresaAlAplicativo() {
 		try {
 			generalSetUp();
-			headers.put("Content-type", "application/json");
 		}catch (Exception exception){
 			Assertions.fail(exception.getMessage(), exception);
 			LOGGER.error(exception.getMessage(), exception);
 		}
-		
 	}
 	
 	@When("crea un usuario nuevo")

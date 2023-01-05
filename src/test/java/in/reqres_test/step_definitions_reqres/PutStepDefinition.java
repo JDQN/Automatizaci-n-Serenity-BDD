@@ -2,20 +2,18 @@ package in.reqres_test.step_definitions_reqres;
 
 import com.github.javafaker.Faker;
 import in.reqres.models.UsuarioModel;
-import in.reqres.questions.IdActualizar;
 import in.reqres.tasks.ActualizarUsuarioTask;
 import in.reqres.tasks.CrearUsuarioTask;
-import in.reqres_test.setup_reqres.ReqresSetUp;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import net.serenitybdd.screenplay.rest.questions.LastResponse;
 import org.apache.log4j.Logger;
 import org.assertj.core.api.Assertions;
 import org.eclipse.jetty.http.HttpStatus;
+import setup.ReqresSetUp;
 
-import static in.reqres.questions.IdActualizar.actualizarId;
-import static in.reqres.questions.CodigoRespuesta.was;
+import static questions.IdActualizar.actualizarId;
+import static questions.CodigoRespuesta.was;
 import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
 import static org.hamcrest.CoreMatchers.equalTo;
 
@@ -33,7 +31,6 @@ public class PutStepDefinition extends ReqresSetUp {
 		try {
 			DatosUsuario();
 			generalSetUp();
-			headers.put("Content-type", "application/json");
 			actor.attemptsTo(
 					CrearUsuarioTask.withName(actualizarUsuarioModel.getName())
 							.andjob(actualizarUsuarioModel.getJob())

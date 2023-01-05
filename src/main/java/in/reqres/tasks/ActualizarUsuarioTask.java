@@ -1,6 +1,6 @@
 package in.reqres.tasks;
 
-import in.reqres.interteraction.Put;
+import interteraction.Put;
 import in.reqres.models.UsuarioModel;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Task;
